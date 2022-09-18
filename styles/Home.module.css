@@ -11,6 +11,7 @@
 .quoteBox {
   color: hsl(193, 38%, 86%);
   background-color: hsl(217, 19%, 24%);
+  box-shadow: 0px 0px 15px 10px hsla(217, 19%, 38%, 0.15);
   padding: 32px;
   padding-top: 48px;
   padding-bottom: 72px;
