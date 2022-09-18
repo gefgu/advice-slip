@@ -17,7 +17,8 @@ const Home: NextPage = () => {
           "It is easy to sit up and take notice, what's difficult is getting up
           and taking action."
         </h1>
-        <Image src="/pattern-divider-desktop.svg" height={16} width={444} layout="responsive"/>
+        <Image src="/pattern-divider-desktop.svg" height={16} width={444} />
+        <button className={styles.button}><Image src="/icon-dice.svg" width={24} height={24} layout="responsive"/></button>
       </main>
     </div>
   );
