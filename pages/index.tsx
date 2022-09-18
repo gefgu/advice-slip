@@ -18,7 +18,7 @@ const Home: NextPage = ({ id, advice }: HomeProps) => {
 
       <main className={styles.quoteBox}>
         <h2 className={styles.subHeading}>Advice #{id}</h2>
-        <h1 className={styles.quote}>"{advice}"</h1>
+        <h1 className={styles.quote}>{`"${advice}"`}</h1>
         <Image src="/pattern-divider-desktop.svg" height={16} width={444} />
         <button className={styles.button}>
           <Image
