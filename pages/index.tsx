@@ -4,16 +4,24 @@ import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import useSWR from "swr";
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 interface HomeProps {
   id?: number;
   advice?: string;
 }
 
+const getRandomIndex = () => Math.floor(Math.random() * 224);
+
 const Home: NextPage = () => {
   const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
-  const { data, mutate } = useSWR("https://api.adviceslip.com/advice", fetcher);
+  const [index, setIndex] = useState(getRandomIndex());
+
+  const { data, mutate } = useSWR(
+    `https://api.adviceslip.com/advice/${index}`,
+    fetcher
+  );
 
   const advice: HomeProps | undefined = data?.slip;
 
@@ -42,13 +50,21 @@ const Home: NextPage = () => {
               {data?.slip && `"${advice?.advice}"`}
             </motion.h1>
           </>
-        ) : <><h2 className={styles.subHeading}>Advice</h2><h1 className={styles.quote}>""</h1></>}
+        ) : (
+          <>
+            <h2 className={styles.subHeading}>Advice</h2>
+            <h1 className={styles.quote}>""</h1>
+          </>
+        )}
         <Image src="/pattern-divider-desktop.svg" height={16} width={444} />
         <motion.button
           className={styles.button}
-          whileHover={{ rotate: 180, transition: { duration: 1 } }}
+          whileHover={{ rotate: 180, transition: { duration: 1, repeat: Infinity } }}
           whileTap={{ scale: 1.2, transition: { duration: 0.25 } }}
-          onClick={mutate}
+          onClick={() => {
+            setIndex(getRandomIndex());
+            mutate();
+          }}
         >
           <Image
             src="/icon-dice.svg"
