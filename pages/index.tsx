@@ -25,8 +25,24 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.quoteBox}>
-        <h2 className={styles.subHeading}>Advice #{advice?.id}</h2>
-        <h1 className={styles.quote}>{data?.slip && `"${advice?.advice}"`}</h1>
+        {advice && (
+          <>
+            <motion.h2
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              className={styles.subHeading}
+            >
+              Advice #{advice?.id}
+            </motion.h2>
+            <motion.h1
+              className={styles.quote}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+            >
+              {data?.slip && `"${advice?.advice}"`}
+            </motion.h1>
+          </>
+        )}
         <Image src="/pattern-divider-desktop.svg" height={16} width={444} />
         <motion.button
           className={styles.button}
