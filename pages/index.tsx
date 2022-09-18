@@ -47,7 +47,7 @@ const Home: NextPage = () => {
         <motion.button
           className={styles.button}
           whileHover={{ rotate: 180, transition: { duration: 1 } }}
-          whileTap={{ scale: 1.2, transition: { duration: 1 } }}
+          whileTap={{ scale: 1.2, transition: { duration: 0.25 } }}
         >
           <Image
             src="/icon-dice.svg"
