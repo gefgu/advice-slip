@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import Image from "next/image";
 import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
@@ -16,6 +17,7 @@ const Home: NextPage = () => {
           "It is easy to sit up and take notice, what's difficult is getting up
           and taking action."
         </h1>
+        <Image src="/pattern-divider-desktop.svg" height={16} width={444} layout="responsive"/>
       </main>
     </div>
   );
