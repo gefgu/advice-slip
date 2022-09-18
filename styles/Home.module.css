@@ -11,14 +11,15 @@
 .quoteBox {
   color: hsl(193, 38%, 86%);
   background-color: hsl(217, 19%, 24%);
-  padding: 32px;
-  border-radius: 32px;
+  padding: 48px;
+  border-radius: 16px;
   text-align: center;
+  max-width: 540px;
 }
 
 .subHeading {
   text-transform: uppercase;
   color: hsl(150, 100%, 66%);
   letter-spacing: 3px;
-  font-size: 16px;
+  font-size: 14px;
 }
