@@ -12,23 +12,25 @@
   color: hsl(193, 38%, 86%);
   background-color: hsl(217, 19%, 24%);
   padding: 32px;
-  padding-bottom: 64px;
+  padding-top: 48px;
+  padding-bottom: 72px;
   border-radius: 16px;
   text-align: center;
   max-width: 540px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 32px;
+  gap: 36px;
   position: relative;
 }
 
 .subHeading {
   text-transform: uppercase;
   color: hsl(150, 100%, 66%);
-  letter-spacing: 3px;
+  letter-spacing: 4px;
   font-size: 14px;
   margin: 0;
+  margin-bottom: -4px;
 }
 
 .quote {
