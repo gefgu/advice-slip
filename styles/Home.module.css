@@ -48,3 +48,14 @@
   position: absolute;
   bottom: -32px;
 }
+
+@media (max-width: 600px) {
+  .container {
+    padding: 16px;
+  }
+  
+  .quoteBox {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
