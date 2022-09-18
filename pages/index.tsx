@@ -12,7 +12,7 @@ const Home: NextPage = () => {
 
       <main className={styles.quoteBox}>
         <h2 className={styles.subHeading}>Advice #117</h2>
-        <h1>
+        <h1 className={styles.quote}>
           "It is easy to sit up and take notice, what's difficult is getting up
           and taking action."
         </h1>
