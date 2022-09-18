@@ -1,14 +1,21 @@
-import type { GetServerSideProps, NextPage } from "next";
+import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
+import useSWR from "swr";
 
 interface HomeProps {
   id?: number;
   advice?: string;
 }
 
-const Home: NextPage = ({ id, advice }: HomeProps) => {
+const Home: NextPage = () => {
+  const fetcher = (url: string) => fetch(url).then((res) => res.json());
+
+  const { data } = useSWR("https://api.adviceslip.com/advice", fetcher);
+
+  const advice: HomeProps | undefined = data?.slip;
+
   return (
     <div className={styles.container}>
       <Head>
@@ -17,8 +24,10 @@ const Home: NextPage = ({ id, advice }: HomeProps) => {
       </Head>
 
       <main className={styles.quoteBox}>
-        <h2 className={styles.subHeading}>Advice #{id}</h2>
-        <h1 className={styles.quote}>{`"${advice}"`}</h1>
+        <h2 className={styles.subHeading}>Advice #{advice?.id}</h2>
+        <h1 className={styles.quote}>
+          {data?.slip && `"${advice?.advice}"`}
+        </h1>
         <Image src="/pattern-divider-desktop.svg" height={16} width={444} />
         <button className={styles.button}>
           <Image
@@ -31,13 +40,6 @@ const Home: NextPage = ({ id, advice }: HomeProps) => {
       </main>
     </div>
   );
-};
-
-export const getServerSideProps: GetServerSideProps = async () => {
-  const res = await fetch("https://api.adviceslip.com/advice");
-  const data = await res.json();
-
-  return { props: { ...data.slip } };
 };
 
 export default Home;
