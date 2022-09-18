@@ -53,7 +53,7 @@ const Home: NextPage = () => {
         ) : (
           <>
             <h2 className={styles.subHeading}>Advice</h2>
-            <h1 className={styles.quote}>""</h1>
+            <h1 className={styles.quote}>{'""'}</h1>
           </>
         )}
         <Image src="/pattern-divider-desktop.svg" height={16} width={444} />
