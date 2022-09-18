@@ -13,7 +13,7 @@ interface HomeProps {
 const Home: NextPage = () => {
   const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
-  const { data } = useSWR("https://api.adviceslip.com/advice", fetcher);
+  const { data, mutate } = useSWR("https://api.adviceslip.com/advice", fetcher);
 
   const advice: HomeProps | undefined = data?.slip;
 
@@ -25,7 +25,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.quoteBox}>
-        {advice && (
+        {advice ? (
           <>
             <motion.h2
               initial={{ opacity: 0 }}
@@ -42,12 +42,13 @@ const Home: NextPage = () => {
               {data?.slip && `"${advice?.advice}"`}
             </motion.h1>
           </>
-        )}
+        ) : <><h2 className={styles.subHeading}>Advice</h2><h1 className={styles.quote}>""</h1></>}
         <Image src="/pattern-divider-desktop.svg" height={16} width={444} />
         <motion.button
           className={styles.button}
           whileHover={{ rotate: 180, transition: { duration: 1 } }}
           whileTap={{ scale: 1.2, transition: { duration: 0.25 } }}
+          onClick={mutate}
         >
           <Image
             src="/icon-dice.svg"
