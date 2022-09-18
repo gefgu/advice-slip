@@ -2,4 +2,15 @@
   background-color: hsl(218, 23%, 16%);
   padding: 32px;
   min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.quoteBox {
+  color: hsl(193, 38%, 86%);
+  background-color: hsl(217, 19%, 24%);
+  padding: 32px;
+  border-radius: 32px;
+  text-align: center;
 }

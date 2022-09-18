@@ -10,7 +10,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.png" />
       </Head>
 
-      <main>
+      <main className={styles.quoteBox}>
         <h2>Advice #117</h2>
         <h1>
           "It is easy to sit up and take notice, what's difficult is getting up
