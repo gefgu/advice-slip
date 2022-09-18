@@ -12,10 +12,13 @@
 .quoteBox {
   color: hsl(193, 38%, 86%);
   background-color: hsl(217, 19%, 24%);
-  padding: 48px;
+  padding: 32px;
   border-radius: 16px;
   text-align: center;
   max-width: 540px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .subHeading {
@@ -23,6 +26,7 @@
   color: hsl(150, 100%, 66%);
   letter-spacing: 3px;
   font-size: 14px;
+  margin: 0;
 }
 
 .quote {
